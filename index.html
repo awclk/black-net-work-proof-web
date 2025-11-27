@@ -1,1 +1,81 @@
 
+<!DOCTYPE html>
+<html lang="en"> <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Black Net Store - Digital Solutions & Proof of Work</title>
+    
+    <link rel="stylesheet" href="style.css">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+</head>
+<body>
+
+    <video autoplay muted loop id="bg-video">
+        <source src="https://assets.mixkit.co/videos/preview/mixkit-stars-in-space-1610-large.mp4" type="video/mp4">
+        Your browser does not support HTML5 video.
+    </video>
+    <div class="overlay"></div>
+
+    <audio id="bgMusic" loop>
+        <source src="media/sound.mp3" type="audio/mpeg">
+    </audio>
+
+    <nav class="navbar">
+        <div class="logo" data-aos="fade-down">Black Net <span>Store</span></div>
+        <ul class="nav-links" data-aos="fade-down" data-aos-delay="100">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#features">Why Choose Us?</a></li>
+            <li><a href="#proofs">Proof of Work</a></li>
+        </ul>
+        <button id="musicToggle" class="music-btn" data-aos="fade-down" data-aos-delay="200">
+            <i class="fas fa-play"></i> Play Music
+        </button>
+    </nav>
+
+    <section id="home" class="hero">
+        <h1 data-aos="zoom-in">Your Reliable Name for <span data-aos="zoom-in" data-aos-delay="200">Digital Solutions</span></h1>
+        <p data-aos="fade-up" data-aos-delay="400">View the proofs and successful transactions of our services below. Black Net Store - The Future is Now.</p>
+        <a href="#proofs" class="btn-neon" data-aos="fade-up" data-aos-delay="600">View Proofs <i class="fas fa-arrow-down"></i></a>
+    </section>
+
+    <section id="features">
+        <h2 class="section-title" data-aos="fade-up">Why Choose Us?</h2>
+        <div class="features-grid">
+            <div class="feature-card" data-aos="flip-left" data-aos-delay="100">
+                <i class="fas fa-rocket"></i>
+                <h3>Fast Service</h3>
+                <p>Execution of your orders and services within the shortest possible time.</p>
+            </div>
+            <div class="feature-card" data-aos="flip-left" data-aos-delay="300">
+                <i class="fas fa-shield-alt"></i>
+                <h3>Secure Transactions</h3>
+                <p>Providing the highest level of security for your data and finances.</p>
+            </div>
+            <div class="feature-card" data-aos="flip-left" data-aos-delay="500">
+                <i class="fas fa-headset"></i>
+                <h3>24/7 Support</h3>
+                <p>Ability to contact our customer service at any time.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="proofs">
+        <h2 class="section-title" data-aos="fade-up">Our Successful Work (Proofs)</h2>
+        <div class="portfolio-grid" id="proof-container">
+            </div>
+    </section>
+
+    <footer>
+        <p>© 2025 Black Net Store. All Rights Reserved.</p>
+        <div style="margin-top: 10px; color: var(--primary-color);">
+            <i class="fab fa-facebook-f"></i> | <i class="fab fa-whatsapp"></i> | <i class="fab fa-telegram-plane"></i>
+        </div>
+    </footer>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    
+    <script src="script.js"></script>
+</body>
+</html>
