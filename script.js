@@ -1,62 +1,57 @@
 /* --- Javascript --- */
 
-// 1. AOS Animation Initialize කිරීම
+// 1. AOS Animation Initialize
 AOS.init({
-    duration: 1000, // ඇනිමේෂන් එකේ වේගය
-    once: true, // එක පාරක් පමණක් ඇනිමේට් වීම
-    offset: 100 /* ඇනිමේට් වීමට පටන් ගන්නා දුර */
+    duration: 1000, 
+    once: true, 
+    offset: 100 
 });
 
 
-// 2. පසුබිම් සංගීතය පාලනය (Music Control)
+// 2. Music Control (නිවැරදි කරන ලද කොටස)
 const bgMusic = document.getElementById('bgMusic');
 const musicBtn = document.getElementById('musicToggle');
 let isPlaying = false;
 
+// Volume set
+bgMusic.volume = 0.5;
+
 musicBtn.addEventListener('click', () => {
     if (isPlaying) {
         bgMusic.pause();
-        musicBtn.innerHTML = '<i class="fas fa-play"></i> Play Music';
+        musicBtn.innerHTML = '<i class="fas fa-play"></i> Play Music'; 
         isPlaying = false;
     } else {
-        // බ්‍රව්සර් එකෙන් අවසර ඉල්ලමින් Play කිරීම
+        // User clicked the button, so the browser allows playing.
         bgMusic.play().then(() => {
-            musicBtn.innerHTML = '<i class="fas fa-pause"></i> Pause Music';
+            musicBtn.innerHTML = '<i class="fas fa-pause"></i> Pause Music'; 
             isPlaying = true;
         }).catch(error => {
-            console.log("Audio play blocked by browser policy. User interaction needed first.");
-            alert("කරුණාකර වෙබ් අඩවිය සමඟ සම්බන්ධ වන්න (Click anywhere first).");
+            // This catch block is mostly for fallback in case the path is wrong.
+            console.error("Error playing audio:", error);
+            alert("Music file not found or browser error."); 
         });
     }
 });
 
-// උත්සාහ කරන්න ස්වයංක්‍රීයව play කිරීමට
-window.addEventListener('load', () => {
-     bgMusic.volume = 0.5; // ශබ්දය 50%
-     bgMusic.play().then(() => {
-         isPlaying = true;
-         musicBtn.innerHTML = '<i class="fas fa-pause"></i> Pause Music';
-     }).catch(() => {
-         console.log("Autoplay blocked. User needs to click play.");
-     });
-});
+// *සටහන: මෙහිදී Page Load වන විට ස්වයංක්‍රීයව Play වීමට තිබූ කේතය ඉවත් කර ඇත.*
+// *සංගීතය ධාවනය වීමට දැන් 'Play Music' බොත්තම ක්ලික් කළ යුතුය.*
 
 
-// 3. වැඩ සාක්ෂි දත්ත (Backend Data Simulation)
-// නව වැඩ එකතු කිරීමට මෙම කොටස Edit කරන්න.
+// 3. Proof Data 
 const proofData = [
     {
         id: 101,
-        title: "Game Account Recovery",
-        description: "පාරිභෝගිකයෙකුගේ නැතිවූ ගිණුමක් සාර්ථකව නැවත ලබා දීම.",
+        title: "Game Account Recovery Service",
+        description: "Successfully retrieved a lost account for a customer with high security.",
         image: "https://source.unsplash.com/random/400x300/?gaming,computer",
         status: "Completed",
         statusType: "status-completed"
     },
     {
         id: 102,
-        title: "Software Installation Service",
-        description: "දුරස්ථව (Remote) සම්බන්ධ වී අවශ්‍ය මෘදුකාංග ස්ථාපනය කර දීම.",
+        title: "Remote Software Installation",
+        description: "Installed necessary software remotely and optimized system performance.",
         image: "https://source.unsplash.com/random/400x300/?code,screen",
         status: "Completed",
         statusType: "status-completed"
@@ -64,7 +59,7 @@ const proofData = [
     {
         id: 103,
         title: "Digital Product Delivery #450",
-        description: "ඇණවුම් කළ ඩිජිටල් භාණ්ඩය විනාඩි 10ක් ඇතුලත ඊමේල් කිරීම.",
+        description: "Emailed the ordered digital product within 10 minutes of payment confirmation.",
         image: "https://source.unsplash.com/random/400x300/?email,digital",
         status: "Completed",
         statusType: "status-completed"
@@ -72,23 +67,23 @@ const proofData = [
     {
         id: 104,
         title: "Custom Order Processing",
-        description: "විශේෂ ඇණවුමක් සඳහා කටයුතු කරමින් පවතී.",
+        description: "Currently processing a special custom order for bulk virtual assets.",
         image: "https://source.unsplash.com/random/400x300/?processing,work",
         status: "Pending",
         statusType: "status-pending"
     }
 ];
 
-// 4. දත්ත HTML වෙත ඇතුලත් කිරීම (Rendering)
+// 4. Rendering Data to HTML
 const proofContainer = document.getElementById('proof-container');
 
 function loadProofs() {
     proofData.forEach((item, index) => {
         const card = document.createElement('div');
         card.classList.add('proof-card');
-        // ඇනිමේෂන් එකක් එකතු කිරීම (Scroll කරන විට මතුවීමට)
+        
         card.setAttribute('data-aos', 'fade-up');
-        card.setAttribute('data-aos-delay', (index * 100).toString()); // එකින් එක පමා වී මතුවීමට
+        card.setAttribute('data-aos-delay', (index * 100).toString()); 
 
         card.innerHTML = `
             <div class="proof-img-box">
@@ -104,7 +99,7 @@ function loadProofs() {
     });
 }
 
-// පිටුව Load වූ පසු ක්‍රියාත්මක වන්න
+// Execute on load
 loadProofs();
 
 // 5. Navbar Scroll Effect
